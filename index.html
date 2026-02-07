@@ -2,47 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For Cupcake 🤍</title>
+  <title>For Cupcake 🧁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: 'Poppins', sans-serif;
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: #4a2c2a;
+      align-items: center;
+      background: linear-gradient(135deg, #2b1055, #7597de);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      overflow: hidden;
       text-align: center;
     }
 
     .box {
-      background: rgba(255,255,255,0.35);
-      padding: 40px;
-      border-radius: 25px;
-      max-width: 500px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      max-width: 700px;
+      padding: 30px;
       animation: fadeIn 1s ease;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-    }
-
     p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 25px;
+      line-height: 1.8;
+      font-size: 18px;
     }
 
     button {
-      padding: 12px 28px;
+      margin-top: 30px;
+      padding: 12px 26px;
+      font-size: 16px;
       border: none;
       border-radius: 30px;
       background: #ff6f91;
-      color: white;
-      font-size: 1rem;
+      color: #fff;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -51,8 +45,20 @@
       transform: scale(1.05);
     }
 
+    .heart {
+      position: fixed;
+      color: #ff6f91;
+      font-size: 20px;
+      animation: floatUp 4s linear forwards;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-600px); opacity: 0; }
+    }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -60,51 +66,104 @@
 <body>
 
   <div class="box" id="content">
-    <h1>Hey Cupcake 🤍<br><small>(my bhondu)</small></h1>
+    <p><strong>Hey Cupcake 🧁</strong></p>
+
     <p>
-      This page isn’t fancy.<br>
-      It’s just honest.
+      This is going to sound a little filmy,<br>
+      but you know I am like that.
     </p>
-    <button onclick="next(1)">Keep going 🤍</button>
+
+    <p>
+      I don’t love you for one specific thing.<br>
+      I love you whole.<br>
+      Even on days when I don’t fully understand myself.
+    </p>
+
+    <button onclick="next(1)">keep going 🤍</button>
   </div>
 
   <script>
     function next(step) {
-      const content = document.getElementById("content");
+      const c = document.getElementById("content");
 
       if (step === 1) {
-        content.innerHTML = `
+        c.innerHTML = `
           <p>
-            I don’t love you for one reason.<br>
-            I love you in the quiet moments,<br>
-            the chaos,<br>
-            and even when you’re being a little bhondu.
+            Aap hi bina bole bhi samajh jaate ho.<br>
+            My silences, my half-sentences,<br>
+            my overthinking that doesn’t always make sense.
           </p>
-          <button onclick="next(2)">You’re making me smile</button>
+
+          <p>
+            And somehow, you never make me feel like I’m too much.<br>
+            You just stay.<br>
+            Calm. Present. Steady.
+          </p>
+
+          <button onclick="next(2)">hmm 🤍</button>
         `;
       }
 
       if (step === 2) {
-        content.innerHTML = `
+        c.innerHTML = `
           <p>
-            I love you whole.<br>
-            Not parts. Not versions.<br>
-            All of you — even the days you don’t see your own magic.
+            Kabhi kabhi mujhe khud nahi pata hota<br>
+            mein kya feel kar rahi hoon,<br>
+            and you don’t rush me.
           </p>
-          <button onclick="next(3)">One more thing…</button>
+
+          <p>
+            You don’t fix me.<br>
+            You just sit with me,<br>
+            and that means everything.
+          </p>
+
+          <button onclick="next(3)">okay 🫶</button>
         `;
       }
 
       if (step === 3) {
-        content.innerHTML = `
-          <h1>🤍</h1>
+        c.innerHTML = `
           <p>
-            This isn’t a Valentine proposal.<br>
-            This is me choosing you.<br>
-            Again. Always.
+            It’s very filmy of me to say this, but<br>
+            aap hi mere chaos ke beech ka comfort ho.<br>
+            Mere noise ke beech ka pause.
           </p>
-          <p style="margin-top:20px;">— Yours</p>
+
+          <p>
+            This isn’t a big declaration.<br>
+            It’s something quieter than that.
+          </p>
+
+          <p>
+            It’s me choosing you,<br>
+            har baar, har din, thoda thoda aur.
+          </p>
+
+          <button onclick="valentine()">mere hottie bhondu, will you be my valentine? 😘😉<br><small>(i know youre ready)</small></button>
         `;
+      }
+    }
+
+    function valentine() {
+      const c = document.getElementById("content");
+      c.innerHTML = `
+        <h2>🤍</h2>
+        <p>I knew it.</p>
+        <p>You were always ready.</p>
+      `;
+
+      for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "0px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
       }
     }
   </script>

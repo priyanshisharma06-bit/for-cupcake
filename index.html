@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For Cupcake 🧁</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>For Cupcake 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     body {
       margin: 0;
@@ -11,162 +12,112 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #2b1055, #7597de);
-      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: "Segoe UI", sans-serif;
       color: #fff;
-      overflow: hidden;
       text-align: center;
     }
 
-    .box {
-      max-width: 700px;
+    .card {
+      background: rgba(255, 255, 255, 0.15);
       padding: 30px;
-      animation: fadeIn 1s ease;
+      border-radius: 20px;
+      max-width: 600px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
     }
 
     p {
-      line-height: 1.8;
-      font-size: 18px;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
 
     button {
-      margin-top: 30px;
-      padding: 12px 26px;
-      font-size: 16px;
+      margin: 15px 10px 0;
+      padding: 12px 22px;
+      font-size: 1rem;
       border: none;
-      border-radius: 30px;
-      background: #ff6f91;
-      color: #fff;
+      border-radius: 25px;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      background: #ff5f7e;
+      color: white;
+      transition: transform 0.2s;
     }
 
     button:hover {
       transform: scale(1.05);
     }
 
-    .heart {
-      position: fixed;
-      color: #ff6f91;
-      font-size: 20px;
-      animation: floatUp 4s linear forwards;
+    #result {
+      margin-top: 25px;
+      display: none;
     }
 
-    @keyframes floatUp {
-      from { transform: translateY(0); opacity: 1; }
-      to { transform: translateY(-600px); opacity: 0; }
+    .polaroid {
+      margin-top: 20px;
+      background: white;
+      padding: 10px 10px 25px;
+      border-radius: 6px;
+      display: inline-block;
+      transform: rotate(-2deg);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+    .polaroid img {
+      max-width: 250px;
+      border-radius: 4px;
+    }
+
+    .caption {
+      margin-top: 8px;
+      color: #333;
+      font-size: 0.95rem;
     }
   </style>
 </head>
+
 <body>
-
-  <div class="box" id="content">
-    <p><strong>Hey Cupcake 🧁</strong></p>
+  <div class="card">
+    <h1>hey cupcake 💗</h1>
 
     <p>
-      This is going to sound a little filmy,<br>
-      but you know I am like that.
+      mein shayad har cheez perfect tareeke se keh nahi paati,
+      par ek baat hamesha clear rehti hai.
+      aap hi ho jo bina bole samajh jaate ho.
+      jab mein confuse hoti hoon, jab mein emotional hoti hoon,
+      aap hi ho jo patiently sunte ho.
     </p>
 
     <p>
-      I don’t love you for one specific thing.<br>
-      I love you whole.<br>
-      Even on days when I don’t fully understand myself.
+      thoda filmy lage shayad,
+      par sach yeh hai ki aap ke saath
+      mein khud ko safe, calm aur happy feel karti hoon.
+      aur haan, aap ka samajhna meri favourite cheez hai.
     </p>
 
-    <button onclick="next(1)">keep going 🤍</button>
+    <h2>mere hottie bhondu, will you be my valentine? 💋😉</h2>
+    <p>(i know you’re ready)</p>
+
+    <button onclick="showYes()">Yes</button>
+
+    <div id="result">
+      <p><strong>sahi jawab, i know my bhondu is a smartiee 💖</strong></p>
+
+      <div class="polaroid">
+        <img src="final.jpg" alt="us together">
+        <div class="caption">ohh you look hot as always</div>
+      </div>
+    </div>
   </div>
 
   <script>
-    function next(step) {
-      const c = document.getElementById("content");
-
-      if (step === 1) {
-        c.innerHTML = `
-          <p>
-            Aap hi bina bole bhi samajh jaate ho.<br>
-            My silences, my half-sentences,<br>
-            my overthinking that doesn’t always make sense.
-          </p>
-
-          <p>
-            And somehow, you never make me feel like I’m too much.<br>
-            You just stay.<br>
-            Calm. Present. Steady.
-          </p>
-
-          <button onclick="next(2)">hmm 🤍</button>
-        `;
-      }
-
-      if (step === 2) {
-        c.innerHTML = `
-          <p>
-            Kabhi kabhi mujhe khud nahi pata hota<br>
-            mein kya feel kar rahi hoon,<br>
-            and you don’t rush me.
-          </p>
-
-          <p>
-            You don’t fix me.<br>
-            You just sit with me,<br>
-            and that means everything.
-          </p>
-
-          <button onclick="next(3)">okay 🫶</button>
-        `;
-      }
-
-      if (step === 3) {
-        c.innerHTML = `
-          <p>
-            It’s very filmy of me to say this, but<br>
-            aap hi mere chaos ke beech ka comfort ho.<br>
-            Mere noise ke beech ka pause.
-          </p>
-
-          <p>
-            This isn’t a big declaration.<br>
-            It’s something quieter than that.
-          </p>
-
-          <p>
-            It’s me choosing you,<br>
-            har baar, har din, thoda thoda aur.
-          </p>
-
-          <button onclick="valentine()">mere hottie bhondu, will you be my valentine? 😘😉<br><small>(i know youre ready)</small></button>
-        `;
-      }
-    }
-
-    function valentine() {
-      const c = document.getElementById("content");
-      c.innerHTML = `
-        <h2>🤍</h2>
-        <p>I knew it.</p>
-        <p>You were always ready.</p>
-      `;
-
-      for (let i = 0; i < 25; i++) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerHTML = "❤";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.bottom = "0px";
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 4000);
-      }
+    function showYes() {
+      document.getElementById("result").style.display = "block";
     }
   </script>
-
 </body>
 </html>

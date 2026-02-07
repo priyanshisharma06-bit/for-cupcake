@@ -16,6 +16,7 @@
       font-family: "Segoe UI", sans-serif;
       color: #fff;
       text-align: center;
+      overflow: hidden;
     }
 
     .card {
@@ -25,6 +26,7 @@
       max-width: 600px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       backdrop-filter: blur(10px);
+      z-index: 2;
     }
 
     .slide {
@@ -89,6 +91,14 @@
       font-style: italic;
     }
 
+    .heart {
+      position: fixed;
+      color: #ff2f68;
+      font-size: 20px;
+      animation: floatUp 4s linear forwards;
+      pointer-events: none;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
@@ -101,6 +111,11 @@
       15% { transform: rotate(2deg); }
       20% { transform: rotate(0deg); }
       100% { transform: rotate(0deg); }
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-600px); opacity: 0; }
     }
   </style>
 </head>
@@ -147,8 +162,8 @@
       <h2>mere hottie bhondu,<br>will you be my valentine? 💋😉</h2>
       <p>(i know you’re ready)</p>
 
-      <button onclick="nextSlide()">Yes</button>
-      <button onclick="nextSlide()">Of course yes</button>
+      <button onclick="yesClicked()">Yes</button>
+      <button onclick="yesClicked()">Of course yes</button>
     </div>
 
     <!-- Slide 5 -->
@@ -172,6 +187,26 @@
       slides[current].classList.remove("active");
       current++;
       slides[current].classList.add("active");
+    }
+
+    function yesClicked() {
+      nextSlide();
+      burstHearts();
+    }
+
+    function burstHearts() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "0px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
     }
   </script>
 
